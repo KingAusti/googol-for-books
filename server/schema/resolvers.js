@@ -18,12 +18,6 @@ const resolvers = {
         } 
     },
     Mutation: {
-        // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
-        createUser: async (parent, args) => {
-            const user = await User.create(args)
-            const token = signToken(user)
-            return { token, user }
-        },
         // login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
         // {body} is destructured req.body
         login: async (parent, { email, password }) => {
@@ -35,6 +29,12 @@ const resolvers = {
             if (!noTypos) {
                 throw new AuthenticationError('BEEPBOOP thats the wrong password')
             }
+            const token = signToken(user)
+            return { token, user }
+        },
+        // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
+        addUser : async (parent, args) => {
+            const user = await User.create(args)
             const token = signToken(user)
             return { token, user }
         },
@@ -51,7 +51,8 @@ const resolvers = {
             }
             throw new AuthenticationError('BEEPBOOP make sure you"re logged in first')
         },
-        deleteBook: async (parent, { bookId }, context) => {
+        // remove a book from `savedBooks`
+        removeBook: async (parent, { bookId }, context) => {
             if (context.user) {
                 const updatedLibrary = await User.findByIdAndUpdate(
                     { _id: context.user._id },
