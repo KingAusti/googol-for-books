@@ -1,12 +1,13 @@
 # googol-for-books
 
 ## USER STORY
+---
 AS AN avid reader<br>
 I WANT to search for new books to read<br>
 SO THAT I can keep a list of books to purchase<br>
 
 ## Table of Contents 
-------
+---
 
 * [Installation](#installation)
 
@@ -17,11 +18,14 @@ SO THAT I can keep a list of books to purchase<br>
 * [Author](#author)
 
 ## Installation
+---
 1. Clone repository using 'git clone"
 2. Install necessary dependencies, run the following command: <br> 'npm install'
 3. To run application 'node server.js' in the command line
 
+
 ## About
+---
 This a project was built using the MERN Stack!<br>
 * Node.js
 * Inquirer
@@ -30,13 +34,20 @@ This a project was built using the MERN Stack!<br>
 * GraphQL
 * Heroku
 
+
 ## Demo
+---
 ![Example of application](./client/public/application%20screenshot.png)
 [Link to Deployed Application](https://googol-for-books.herokuapp.com/)
+
+
 ## Author 
+---
 [KingAusti](github.com/kingausti)
 
+
 ## SPECIFICATIONS
+---
 GIVEN a book search engine<br>
 WHEN I load the search engine<br>
 THEN I am presented with a menu with the options Search for Books and Login/Signup and an input field to search for books and a submit button<br>
